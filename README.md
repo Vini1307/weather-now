@@ -25,29 +25,6 @@ Nosso objetivo é oferecer uma plataforma amigável que permita aos usuários ob
 - **Hospedagem:** ...
 - **Controle de Versão:** Git & GitHub
 
-## 📦 Como Executar o Projeto Localmente
-
-1. Clone o repositório:
-
-   ```bash
-   git clone https://github.com/Vini1307/weather-now
-   ```
-
-2. Instale as dependências:
-
-   ```bash
-   cd weather-now
-   npm install
-   ```
-
-3. Inicie o servidor:
-
-   ```bash
-   npm start
-   ```
-
-4. Abra o navegador e acesse `...`.
-
 ## 🛡️ Contribuições
 
 Contribuições são bem-vindas! Sinta-se à vontade para abrir issues, sugerir melhorias ou enviar pull requests.
