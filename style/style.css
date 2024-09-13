@@ -200,7 +200,9 @@ body:not(.rainy) .rain {
     padding: 10px;
     border-radius: 20px;
     background-color: #e6f1f9; /* Cor de fundo */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    box-shadow: 0 10px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    margin-top: 50px;
+    position: relative; /* Pode ser necessário para garantir o posicionamento correto */
 }
 
 #search input{
@@ -313,10 +315,15 @@ body:not(.rainy) .rain {
 
 #forecast {
     margin-top: 20px;
+    display: none;
+}
+
+#forecast.show {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
 
 #forecast {
     display: none;

@@ -40,10 +40,12 @@ function showInfo(json) {
     showAlert('');
 
     document.querySelector('#weather').classList.add('show');
+    document.querySelector('#forecast').classList.add('show'); // Adiciona a classe show ao forecast
 
     // Adiciona a classe hidden à text-container
     document.querySelector('.text-container').classList.add('hidden');
 
+    // Atualiza as informações do clima atual
     document.querySelector('#title').innerHTML = `${json.city}, ${json.country}`;
 
     const temp = json.temp.toFixed(1).toString().replace('.', ',');
@@ -68,6 +70,8 @@ function showInfo(json) {
         document.body.classList.add('clear-sky');
     } else if (description.includes('parcialmente nublado')) {
         document.body.classList.add('partly-cloudy');
+    } else if (description.includes('neblina')) {
+        document.body.classList.add('cloudy');
     } else if (description.includes('nublado')) {
         document.body.classList.add('cloudy');
     } else if (description.includes('chuva leve')) {
@@ -101,6 +105,7 @@ function showInfo(json) {
     }
 }
 
+
 function displayForecast(data) {
     const forecastContainer = document.getElementById('forecast-days');
     forecastContainer.innerHTML = ''; // Limpa o conteúdo existente
@@ -110,9 +115,13 @@ function displayForecast(data) {
         return;
     }
 
+    // Define o número máximo de dias a serem exibidos
+    const daysToShow = 5;
+    let dayCount = 0;
+
     // Exibe a previsão para os próximos dias
     data.list.forEach((item, index) => {
-        if (index % 8 === 0) { // Mostra a previsão para cada dia (8 previsões por dia na API)
+        if (index % 8 === 0 && dayCount < daysToShow) { // Mostra a previsão para cada dia (8 previsões por dia na API)
             const dayDiv = document.createElement('div');
             dayDiv.classList.add('forecast-day');
 
@@ -129,9 +138,12 @@ function displayForecast(data) {
             `;
 
             forecastContainer.appendChild(dayDiv);
+            dayCount++;
         }
     });
 }
+
+
 
 function showAlert(msg) {
     document.querySelector('#alert').innerHTML = msg;
