@@ -1,38 +1,40 @@
-document.querySelector('#search').addEventListener('submit', async (event) =>{
+document.querySelector('#search').addEventListener('submit', async (event) => {
     event.preventDefault();
 
     const cityName = document.querySelector('#city_name').value;
 
-    if (!cityName){
-        return showAlert('Você precisa digitar uma cidade...')
+    if (!cityName) {
+        return showAlert('Você precisa digitar uma cidade...');
     }
-    const apiKey = 'bab2af24a8f449072a72db058f807444'
-    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURI(cityName)}&appid=${apiKey}&units=metric&lang=pt_br`
 
-    const results = await fetch(apiUrl)
-    const json = await results.json()
+    const apiKey = 'bab2af24a8f449072a72db058f807444';
+    const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURI(cityName)}&appid=${apiKey}&units=metric&lang=pt_br`;
+    const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${encodeURI(cityName)}&appid=${apiKey}&units=metric&lang=pt_br`;
 
-    if(json.cod === 200){
+    const weatherResults = await fetch(weatherUrl);
+    const weatherJson = await weatherResults.json();
+
+    if (weatherJson.cod === 200) {
         showInfo({
-            city: json.name,
-            country: json.sys.country,
-            temp: json.main.temp,
-            tempMax: json.main.temp_max,
-            tempMin: json.main.temp_min,
-            description: json.weather[0].description,
-            tempIcon: json.weather[0].icon,
-            windSpeed: json.wind.speed,
-            humidity: json.main.humidity,
-        })
-    }else{
-        showAlert(
-            `Não foi possivel localizar...
-            
-            <img src="img/undraw_alert_re_j2op.svg/">
-            
-        `)
+            city: weatherJson.name,
+            country: weatherJson.sys.country,
+            temp: weatherJson.main.temp,
+            tempMax: weatherJson.main.temp_max,
+            tempMin: weatherJson.main.temp_min,
+            description: weatherJson.weather[0].description,
+            tempIcon: weatherJson.weather[0].icon,
+            windSpeed: weatherJson.wind.speed,
+            humidity: weatherJson.main.humidity,
+        });
+
+        // Buscar a previsão dos próximos dias
+        const forecastResults = await fetch(forecastUrl);
+        const forecastJson = await forecastResults.json();
+        displayForecast(forecastJson);
+    } else {
+        showAlert('Não foi possível localizar...');
     }
-})
+});
 
 function showInfo(json) {
     showAlert('');
@@ -99,8 +101,38 @@ function showInfo(json) {
     }
 }
 
+function displayForecast(data) {
+    const forecastContainer = document.getElementById('forecast-days');
+    forecastContainer.innerHTML = ''; // Limpa o conteúdo existente
 
-function showAlert(msg){
-    document.querySelector('#alert').innerHTML = msg;
+    if (!data || !data.list) {
+        forecastContainer.innerHTML = '<p>Não foi possível obter a previsão.</p>';
+        return;
+    }
+
+    // Exibe a previsão para os próximos dias
+    data.list.forEach((item, index) => {
+        if (index % 8 === 0) { // Mostra a previsão para cada dia (8 previsões por dia na API)
+            const dayDiv = document.createElement('div');
+            dayDiv.classList.add('forecast-day');
+
+            const date = new Date(item.dt * 1000);
+            const day = date.toLocaleDateString('pt-BR', { weekday: 'short', day: 'numeric', month: 'long' });
+            const description = item.weather[0].description;
+            const temp = item.main.temp.toFixed(1);
+
+            dayDiv.innerHTML = `
+                <h3>${day}</h3>
+                <img src="https://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png" alt="${description}">
+                <p>${description}</p>
+                <p>Temperatura: ${temp}°C</p>
+            `;
+
+            forecastContainer.appendChild(dayDiv);
+        }
+    });
 }
 
+function showAlert(msg) {
+    document.querySelector('#alert').innerHTML = msg;
+}

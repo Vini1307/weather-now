@@ -173,7 +173,7 @@ body:not(.rainy) .rain {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
+    height: 100%;
     gap: 90px;
 }
 
@@ -295,4 +295,42 @@ body:not(.rainy) .rain {
 #wind_icon{
     color: #7c3aed;
 }
+
+#forecast {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#forecast h2 {
+    color: #ffffff;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+#forecast-days {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.forecast-day {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 10px;
+    width: 150px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.forecast-day img {
+    width: 50px;
+}
+
+.forecast-day p {
+    margin: 5px 0;
+}
+
 
