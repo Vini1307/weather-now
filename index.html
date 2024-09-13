@@ -10,6 +10,14 @@
     <title>Weather Now</title>
 </head>
 <body>
+    <nav class="menu-bar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="favoritos.html">Favoritos</a></li>
+            <li><a href="#">Minha Cidade</a></li>
+            <li><a href="5proximos.html">5 Próximos Dias</a></li>
+        </ul>
+    </nav>
     <div class="rain">
         <!-- 20 gotas de exemplo, você pode ajustar conforme necessário -->
         <div class="drop"></div>
@@ -50,7 +58,12 @@
         <div id="forecast-days"></div>
     </div>
     <div id="weather">
-        <h1 id="title">Rolante, BR</h1>
+        <h1 id="title">
+            Rolante, BR
+            <button id="favorite-btn" title="Favoritar">
+                <i class="fa-solid fa-star"></i>
+            </button>
+        </h1>
 
         <div id="infos">
             <div id="temp">
