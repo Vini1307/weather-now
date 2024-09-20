@@ -103,6 +103,20 @@ function showInfo(json) {
     } else {
         document.body.classList.add('sunny');
     }
+
+    // switch (description) {
+    //     case "ceu limpo":
+    //         document.body.classList.add('strong-wind');
+    //         break;
+
+    //     case "neve":
+    //         document.body.classList.add('strong-wind');
+    //         break;
+
+    //     default:
+    //         document.body.classList.add('strong-wind');
+    //         break;
+    // }
 }
 
 
@@ -143,8 +157,7 @@ function displayForecast(data) {
     });
 }
 
-
-
 function showAlert(msg) {
     document.querySelector('#alert').innerHTML = msg;
 }
+
