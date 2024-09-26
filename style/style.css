@@ -100,7 +100,8 @@ body.clear-sky::after {
 
 
 body.partly-cloudy {
-    background: linear-gradient(to top, #f0f8ff, #e6f0f8); 
+    background: linear-gradient(to top, #f0f8ff, #e6f0f8);
+    color: #000; 
 }
 
 body.cloudy {

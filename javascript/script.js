@@ -70,6 +70,8 @@ function showInfo(json) {
         document.body.classList.add('clear-sky');
     } else if (description.includes('parcialmente nublado')) {
         document.body.classList.add('partly-cloudy');
+    } else if (description.includes('nuvens dispersas')) {
+        document.body.classList.add('partly-cloudy');
     } else if (description.includes('neblina')) {
         document.body.classList.add('cloudy');
     } else if (description.includes('nublado')) {
@@ -96,7 +98,9 @@ function showInfo(json) {
         document.body.classList.add('hail');
     } else if (description.includes('nevoeiro')) {
         document.body.classList.add('fog');
-    } else if (description.includes('tempestade')) {
+    }   else if (description.includes('névoa')) {
+        document.body.classList.add('fog');
+    }   else if (description.includes('tempestade')) {
         document.body.classList.add('storm');
     } else if (description.includes('vento forte')) {
         document.body.classList.add('strong-wind');
