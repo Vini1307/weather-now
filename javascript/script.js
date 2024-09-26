@@ -157,7 +157,12 @@ function displayForecast(data) {
     });
 }
 
-function showAlert(msg) {
-    document.querySelector('#alert').innerHTML = msg;
+function showAlert(message) {
+    const alertBox = document.querySelector('#alert');
+    alertBox.textContent = message;
+    alertBox.style.display = 'block';
+    setTimeout(() => {
+        alertBox.style.display = 'none';
+    }, 3000);
 }
 

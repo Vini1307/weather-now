@@ -56,8 +56,48 @@ body {
 }
 
 body.clear-sky {
-    background-image: radial-gradient(circle at 78.8% 39.52%, #00c5cd 0, #00c5d4 10%, #00c4db 20%, #00c3e2 30%, #00c2e8 40%, #0cc1ed 50%, #28c0f2 60%, #3cbef5 70%, #4dbcf8 80%, #5dbafb 90%, #6cb8fc 100%); 
+    background: linear-gradient(to top, #87CEEB, #B0E0E6); /* Fundo do céu */
+    position: relative;
 }
+
+body.clear-sky::before {
+    content: "";
+    position: absolute;
+    bottom: -100px; /* Posiciona o sol fora da tela inicialmente */
+    left: 2%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle at center, #FFD700, #FFA500); /* Estilo do sol */
+    border-radius: 50%;
+    animation: sunRise 5s ease-in-out forwards; /* Animação de nascer do sol */
+    z-index: -1;
+
+}
+
+body.clear-sky::after {
+    content: "";
+    position: absolute;
+    bottom: -100px; /* Posiciona o sol fora da tela inicialmente */
+    left: 70%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 100px;
+    background: radial-gradient(circle at 20% 20%, #FFFFFF, #F0F0F0 60%, transparent 80%); /* Estilo de nuvem */
+    border-radius: 50%;
+    animation: sunRise 5s ease-in-out forwards; /* Animação */
+    z-index: -1;
+}
+
+@keyframes sunRise {
+    0% {
+        bottom: -100px; /* Começa fora da tela */
+    }
+    100% {
+        bottom: 82%; /* Chega até o meio do céu */
+    }
+}
+
 
 body.partly-cloudy {
     background: linear-gradient(to top, #f0f8ff, #e6f0f8); 
@@ -229,6 +269,12 @@ body:not(.rainy) .rain {
 #weather{
     margin-top: 20px;
     display: none;
+    background: rgba(255, 255, 255, 0.1);
+    width: 350px;
+    padding: 30px 20px;
+    border-radius: 15px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+    
 }
 
 #weather.show{
@@ -343,6 +389,7 @@ body:not(.rainy) .rain {
     flex-wrap: wrap;
     gap: 10px;
     justify-content: center;
+    
 }
 
 .forecast-day {
