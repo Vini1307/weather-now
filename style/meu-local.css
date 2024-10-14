@@ -1,0 +1,37 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f0f8ff; /* Fundo azul claro */
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+nav.menu-bar {
+    font-family: 'Raleway', sans-serif;
+    background-color: #333;
+    padding: 10px;
+}
+
+nav.menu-bar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+nav.menu-bar ul li {
+    display: inline;
+}
+
+nav.menu-bar ul li a {
+    color: #f0f8ff;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 20px;
+    transition: background-color 0.3s;
+}
+
+nav.menu-bar ul li a:hover {
+    background-color: #555;
+}

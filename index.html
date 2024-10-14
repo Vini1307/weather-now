@@ -14,12 +14,12 @@
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="favoritos.html">Favoritos</a></li>
-            <li><a href="#">Minha Cidade</a></li>
+            <li><a href="meu-local.html">Minha Localização</a></li>
             <li><a href="5proximos.html">5 Próximos Dias</a></li>
         </ul>
     </nav>
+
     <div class="rain">
-        <!-- 20 gotas de exemplo, você pode ajustar conforme necessário -->
         <div class="drop"></div>
         <div class="drop"></div>
         <div class="drop"></div>
@@ -39,101 +39,85 @@
         <div class="drop"></div>
         <div class="drop"></div>
         <div class="drop"></div>
-        <div class="drop"></div>
-    
     </div>
+
     <div id="container">
         <div class="text-container">
             <h1>Weather Now</h1>
         </div>
-     <form id="search">
-         <i class="fa-solid fa-location-dot"></i>
-         <input type="search" name="city-name" placeholder="Buscar cidade" id="city_name">
-         <button type="submit">
-             <i class="fa-solid fa-magnifying-glass"></i>
-         </button>        
-     </form>
 
-    <div id="weather">
-        <h1 id="title">
-            Rolante, BR
-            <button id="favorite-btn" title="Favoritar">
-                <i class="fa-solid fa-star"></i>
-            </button>
-        </h1>
+        <form id="search">
+            <i class="fa-solid fa-location-dot"></i>
+            <input type="search" name="city-name" placeholder="Buscar cidade" id="city_name">
+            <button type="submit">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>        
+        </form>
 
-        <div id="infos">
-            <div id="temp">
-                <img id="temp_img" src="http://openweathermap.org/img/wn/04d@2x.png" alt="">
-
-                <div>
-                    <p id="temp_value">
-                        ''<sup>''</sup>
-                    </p>
-                    <p id="temp_description">
-                      ''
-                    </p>
-                </div>
+        <div id="weather">
+            <div class="city-name">
+                <h1 id="title">
+                    Rolante, BR
+                </h1>
+                <button id="favorite-btn" title="Favoritar">
+                    <i class="fa-solid fa-star"></i>
+                </button>
             </div>
 
-            <div id="other_infos">
-                <div class="info">
-                    <i id="temp_max_icon" class="fa-solid fa-temperature-high"></i>
-
+            <div id="infos">
+                <div id="temp">
+                    <img id="temp_img" src="http://openweathermap.org/img/wn/04d@2x.png" alt="">
                     <div>
-                        <h2>Temp.max</h2>
-                        <p id="temp_max">
-                            '' <sup>''</sup>
-                        </p>
+                        <p id="temp_value">''<sup>''</sup></p>
+                        <p id="temp_description">''</p>
                     </div>
                 </div>
 
-                <div class="info">
-                    <i id="temp_min_icon" class="fa-solid fa-temperature-low"></i>
+                <div id="other_infos">
+                    <div class="info">
+                        <i id="temp_max_icon" class="fa-solid fa-temperature-high"></i>
+                        <div>
+                            <h2>Temp.max</h2>
+                            <p id="temp_max">'' <sup>''</sup></p>
+                        </div>
+                    </div>
 
-                    <div>
-                        <h2>Temp.min</h2>
-                        <p id="temp_min">
-                            '' <sup>''</sup>
-                        </p>
+                    <div class="info">
+                        <i id="temp_min_icon" class="fa-solid fa-temperature-low"></i>
+                        <div>
+                            <h2>Temp.min</h2>
+                            <p id="temp_min">'' <sup>''</sup></p>
+                        </div>
+                    </div>
+
+                    <div class="info">
+                        <i id="humidity_icon" class="fa-solid fa-droplet"></i>
+                        <div>
+                            <h2>Humidade</h2>
+                            <p id="humidity">''</p>
+                        </div>
+                    </div>
+
+                    <div class="info">
+                        <i id="wind_icon" class="fa-solid fa-wind"></i>
+                        <div>
+                            <h2>Vento</h2>
+                            <p id="wind">''</p>
+                        </div>
                     </div>
                 </div>
-
-                <div class="info">
-                    <i id="humidity_icon" class="fa-solid fa-droplet"></i>
-
-                    <div>
-                        <h2>Humidade</h2>
-                        <p id="humidity">
-                            ''
-                        </p>
-                    </div>
-                </div>
-
-                <div class="info">
-                    <i id="wind_icon" class="fa-solid fa-wind"></i>
-
-                    <div>
-                        <h2>Vento</h2>
-                        <p id="wind">
-                            ''
-                        </p>
-                    </div>
-                </div>
-
             </div>
         </div>
-    </div>
-    <div id="forecast">
-        <h2>Previsão para os Próximos Dias</h2>
-        <div id="forecast-days"></div>
-    </div>
-    
 
-    <div id="alert"></div>
-   </div> 
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.7.13/lottie.min.js"></script>
-   <script src="javascript/script.js"></script>
+        <div id="forecast">
+            <h2>Previsão para os Próximos Dias</h2>
+            <div id="forecast-days"></div>
+        </div>
+
+        <div id="alert"></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.7.13/lottie.min.js"></script>
+    <script src="javascript/script.js"></script>
 </body>
-
 </html>

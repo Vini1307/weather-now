@@ -1,0 +1,214 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f0f8ff; /* Fundo azul claro */
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+nav.menu-bar {
+    font-family: 'Raleway', sans-serif;
+    background-color: #333;
+    padding: 10px;
+}
+
+nav.menu-bar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+nav.menu-bar ul li {
+    display: inline;
+}
+
+nav.menu-bar ul li a {
+    color: #f0f8ff;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 20px;
+    transition: background-color 0.3s;
+}
+
+nav.menu-bar ul li a:hover {
+    background-color: #555;
+}
+
+.container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.container h1 {
+    text-align: center;
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Remover background-color fixo do weather-container e ajustar layout */
+.weather-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 20px;
+    text-align: center;
+    transition: box-shadow 0.3s, background 0.3s;
+}
+
+.weather-container:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.weather-container h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.weather-container img {
+    width: 50px;
+    margin-bottom: 10px;
+}
+
+.weather-container p {
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+#favorites-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+#favorites-list li {
+    background-color: #e3f2fd;
+    border: 1px solid #90caf9;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 15px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#favorites-list li:hover {
+    background-color: #bbdefb;
+    transform: scale(1.05);
+}
+
+#favorites-list p {
+    font-size: 18px;
+    text-align: center;
+    color: #555;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        margin: 20px auto;
+    }
+
+    nav.menu-bar ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav.menu-bar ul li a {
+        display: block;
+        margin-bottom: 10px;
+    }
+}
+
+.cloudy {
+    background: linear-gradient(to bottom, #b3b3b3, #e0e0e0);
+    background-size: cover;
+    background-repeat: no-repeat;
+    animation: moveClouds 20s linear infinite;
+}
+
+.clear-sky {
+    background-image: url('/imagens/DALL·E\ 2024-10-14\ 12.25.53\ -\ A\ stylized\ illustration\ of\ a\ clear\ blue\ sky\ with\ a\ bright\ sun\ shining\,\ with\ a\ few\ fluffy\ white\ clouds.\ The\ scene\ should\ evoke\ a\ feeling\ of\ warmth\ and\ .webp');
+    background-size: cover; /* Faz a imagem cobrir todo o fundo */
+    background-position: center; /* Centraliza a imagem no fundo */
+    background-repeat: no-repeat; /* Impede que a imagem se repita */
+    position: relative; /* Mantém o position que você tinha */
+}
+
+.partly-cloudy {
+    background: linear-gradient(to top, #f0f8ff, #e6f0f8);
+    color: #000000; 
+}
+
+.partly-cloudy #weather #title{
+    color: #000;
+}
+
+.partly-cloudy #forecast h2{
+    color: #000;
+}
+
+.cloudy {
+    background: linear-gradient(to bottom, #b3b3b3, #e0e0e0);
+    background-size: cover;
+    background-repeat: no-repeat;
+    animation: moveClouds 20s linear infinite;
+}
+
+
+.light-rain {
+    background: linear-gradient(to bottom, #a3c1d1, #d9e7f2);
+    background-size: cover;
+    background-repeat: no-repeat;
+    animation: drizzle 2s linear infinite; 
+}
+
+.moderate-rain {
+    background: linear-gradient(to top, #9fc3c4, #c3d6d7); 
+}
+
+.heavy-rain {
+    background: linear-gradient(to top, #7a9a9f, #9ab7b9); 
+}
+
+.torrential-rain {
+    background: linear-gradient(to top, #6b8e8d, #8da4a6); 
+}
+
+.light-snow {
+    background: linear-gradient(to top, #f0f8ff, #e6f0f8); 
+}
+
+.moderate-snow {
+    background: linear-gradient(to top, #d9e9f2, #b0d0e0); 
+}
+
+.heavy-snow {
+    background: linear-gradient(to top, #b0c4de, #a0bcd0);
+}
+
+.hail {
+    background: linear-gradient(to top, #c6e0f5, #a3c6f5);
+}
+
+.fog {
+    background: linear-gradient(to top, #d3d3d3, #c0c0c0); 
+}
+
+.storm {
+    background: linear-gradient(to top, #708090, #2f4f4f); 
+}
+
+.strong-wind {
+    background: linear-gradient(to top, #a0b0b0, #8b9e9e); 
+}

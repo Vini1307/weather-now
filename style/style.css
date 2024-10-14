@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 *{
-    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -10,7 +9,7 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Poppins', sans-serif;
     background-color: #000;
 }
 
@@ -101,7 +100,15 @@ body.clear-sky::after {
 
 body.partly-cloudy {
     background: linear-gradient(to top, #f0f8ff, #e6f0f8);
-    color: #000; 
+    color: #000000; 
+}
+
+body.partly-cloudy #weather #title{
+    color: #000;
+}
+
+body.partly-cloudy #forecast h2{
+    color: #000;
 }
 
 body.cloudy {
@@ -271,7 +278,7 @@ body:not(.rainy) .rain {
     margin-top: 20px;
     display: none;
     background: rgba(255, 255, 255, 0.1);
-    width: 350px;
+    width: 25rem;
     padding: 30px 20px;
     border-radius: 15px;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
@@ -416,7 +423,7 @@ body:not(.rainy) .rain {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1000; /* Garante que a barra fique acima de outros elementos */
+    z-index: 1000; 
 }
 
 .menu-bar ul {
@@ -424,7 +431,9 @@ body:not(.rainy) .rain {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center; /* Centraliza as abas */
+    justify-content: space-around;
+    font-family: 'Raleway', sans-serif;
+    font-size: 18px;
 }
 
 .menu-bar li {
@@ -454,9 +463,9 @@ body:not(.rainy) .rain {
     background: none;
     border: none;
     cursor: pointer;
-    color: #f0f0f0;
     font-size: 24px;
-    transition: color 0.3s;
+    color: #8a8a8a; /* Cor padrão da estrela */
+    margin-left: 10px;
 }
 
 #favorite-btn:hover {
@@ -467,6 +476,29 @@ body:not(.rainy) .rain {
     color: #ffd700; /* Cor para indicar que a cidade está favoritada */
 }
 
+.city-name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #horario-local {
     display: block; /* Ou flex, dependendo do layout desejado */
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        margin: 20px auto;
+    }
+
+    nav.menu-bar ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav.menu-bar ul li a {
+        display: block;
+        margin-bottom: 10px;
+    }
 }
