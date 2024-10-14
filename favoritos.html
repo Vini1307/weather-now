@@ -3,23 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="style/favoritos.css"> <!-- Adiciona o CSS de favoritos -->
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=Raleway:900" rel="stylesheet">
-    <title>Weather Now</title>
+    <title>Weather Now - Favoritos</title>
 </head>
+
 <body>
     <nav class="menu-bar">
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="favoritos.html">Favoritos</a></li>
             <li><a href="#">Minha Cidade</a></li>
-            <li><a href="#">5 Próximos Dias</a></li>
+            <li><a href="5proximos.html">5 Próximos Dias</a></li>
         </ul>
     </nav>
 
-   <script src="javascript/script.js"></script>
-</body>
+    <div class="container">
+        <h1>Cidades Favoritas</h1>
+        <div id="favorites-list"></div> <!-- O JavaScript preencherá este container -->
+    </div>
 
+    <script src="javascript/script.js"></script> <!-- Script principal -->
+    <script>
+        // Função para carregar os favoritos na página favoritos.html
+        function loadFavorites() {
+            const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+            const favoritesList = document.getElementById('favorites-list');
+
+            // Verifica se há cidades favoritas
+            if (favorites.length === 0) {
+                favoritesList.innerHTML = '<p>Você ainda não tem cidades favoritas.</p>';
+            } else {
+                const ul = document.createElement('ul');
+
+                favorites.forEach(city => {
+                    const li = document.createElement('li');
+                    li.textContent = city;
+                    li.addEventListener('click', () => {
+                        // Função para redirecionar à página principal e carregar a cidade
+                        window.location.href = `index.html?city=${city}`;
+                    });
+                    ul.appendChild(li);
+                });
+
+                favoritesList.appendChild(ul);
+            }
+        }
+
+        // Chama a função para carregar os favoritos quando a página é carregada
+        window.onload = loadFavorites;
+    </script>
+</body>
 </html>
