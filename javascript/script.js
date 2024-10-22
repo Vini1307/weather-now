@@ -332,13 +332,11 @@ function getLocation() {
     }
 }
 
-// Função chamada quando a posição é obtida
 function showPosition(position) {
     const lat = position.coords.latitude;
     const lon = position.coords.longitude;
     console.log(`Latitude: ${lat}, Longitude: ${lon}`);
     
-    // Busca o clima pela localização atual
     getWeatherByLocation(lat, lon);
 }
 
@@ -359,7 +357,6 @@ function displayWeather(data) {
 }
 
 
-// Lida com erros ao obter a geolocalização
 function showError(error) {
     switch(error.code) {
         case error.PERMISSION_DENIED:
@@ -376,8 +373,59 @@ function showError(error) {
             break;
     }
 }
+async function getCityByLocation(lat, lon) {
+    const reverseGeocodeUrl = `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json&addressdetails=1`;
+    
+    try {
+        const response = await fetch(reverseGeocodeUrl);
+        const data = await response.json();
+        
+        if (response.ok) {
+            return data.address.city || data.address.town || data.address.village || 'Localização não encontrada';
+        } else {
+            throw new Error(data.message);
+        }
+    } catch (error) {
+        console.error('Erro ao obter a cidade pela localização:', error);
+        return 'Erro ao obter a cidade.';
+    }
+}
 
-// Função para buscar a geolocalização quando o botão for clicado
+async function showPosition(position) {
+    const lat = position.coords.latitude;
+    const lon = position.coords.longitude;
+    console.log(`Latitude: ${lat}, Longitude: ${lon}`);
+    
+    const city = await getCityByLocation(lat, lon);
+    
+    await getWeatherByLocation(lat, lon, city);
+}
+
+async function getWeatherByLocation(lat, lon, city) {
+    const apiKey = 'bab2af24a8f449072a72db058f807444';
+    const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=pt`;
+    const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric&lang=pt`;
+
+    try {
+        const weatherResponse = await fetch(weatherUrl);
+        const weatherData = await weatherResponse.json();
+        
+        if (weatherResponse.ok) {
+            displayWeather(weatherData);
+
+            const forecastResponse = await fetch(forecastUrl);
+            const forecastData = await forecastResponse.json();
+
+            displayForecast(forecastData);
+        } else {
+            alert(weatherData.message);
+        }
+    } catch (error) {
+        console.error('Erro ao obter dados climáticos pela geolocalização:', error);
+        alert('Erro ao obter dados climáticos pela geolocalização.');
+    }
+}
+
 document.getElementById('geo-btn').addEventListener('click', function() {
     getLocation();
 });
