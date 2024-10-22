@@ -7,7 +7,7 @@ document.querySelector('#search').addEventListener('submit', async (event) => {
         return showAlert('Você precisa digitar uma cidade...');
     }
 
-    const apiKey = 'APIKEY';
+    const apiKey = 'bab2af24a8f449072a72db058f807444';
     const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURI(cityName)}&appid=${apiKey}&units=metric&lang=pt_br`;
     const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${encodeURI(cityName)}&appid=${apiKey}&units=metric&lang=pt_br`;
 
@@ -294,7 +294,7 @@ function showAlert(message) {
 
 // Função para buscar clima usando geolocalização
 async function getWeatherByLocation(lat, lon) {
-    const apiKey = 'APIKEY';
+    const apiKey = 'bab2af24a8f449072a72db058f807444';
     const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric&lang=pt`;
     const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric&lang=pt_br`;
 
@@ -402,7 +402,7 @@ async function showPosition(position) {
 }
 
 async function getWeatherByLocation(lat, lon, city) {
-    const apiKey = 'APIKEY';
+    const apiKey = 'bab2af24a8f449072a72db058f807444';
     const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=pt`;
     const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric&lang=pt`;
 
