@@ -41,6 +41,8 @@ document.querySelector('#search').addEventListener('submit', async (event) => {
     }
 });
 
+
+
 function showInfo(json) {
     showAlert('');
 
@@ -289,3 +291,93 @@ function showAlert(message) {
         alertBox.style.display = 'none';
     }, 3000);
 }
+
+// Função para buscar clima usando geolocalização
+async function getWeatherByLocation(lat, lon) {
+    const apiKey = 'bab2af24a8f449072a72db058f807444';
+    const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric&lang=pt`;
+    const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric&lang=pt_br`;
+
+    try {
+        // Buscar clima atual
+        const weatherResponse = await fetch(weatherUrl);
+        const weatherData = await weatherResponse.json();
+        
+        if (weatherResponse.ok) {
+            // Exibir clima atual
+            displayWeather(weatherData);
+
+            // Buscar previsão dos próximos 5 dias
+            const forecastResponse = await fetch(forecastUrl);
+            const forecastData = await forecastResponse.json();
+
+            // Exibir previsão
+            displayForecast(forecastData);
+        } else {
+            alert(weatherData.message);
+        }
+    } catch (error) {
+        console.error('Erro ao obter dados climáticos pela geolocalização:', error);
+        alert('Erro ao obter dados climáticos pela geolocalização.');
+    }
+}
+
+
+// Verifica se a geolocalização está disponível no navegador
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+    } else {
+        alert("Geolocalização não é suportada pelo seu navegador.");
+    }
+}
+
+// Função chamada quando a posição é obtida
+function showPosition(position) {
+    const lat = position.coords.latitude;
+    const lon = position.coords.longitude;
+    console.log(`Latitude: ${lat}, Longitude: ${lon}`);
+    
+    // Busca o clima pela localização atual
+    getWeatherByLocation(lat, lon);
+}
+
+function displayWeather(data) {
+    const weatherInfo = {
+        city: data.name,
+        country: data.sys.country,
+        temp: data.main.temp,
+        tempMax: data.main.temp_max,
+        tempMin: data.main.temp_min,
+        description: data.weather[0].description,
+        tempIcon: data.weather[0].icon,
+        windSpeed: data.wind.speed,
+        humidity: data.main.humidity,
+    };
+    
+    showInfo(weatherInfo);
+}
+
+
+// Lida com erros ao obter a geolocalização
+function showError(error) {
+    switch(error.code) {
+        case error.PERMISSION_DENIED:
+            alert("Permissão de geolocalização negada pelo usuário.");
+            break;
+        case error.POSITION_UNAVAILABLE:
+            alert("Informação de localização não disponível.");
+            break;
+        case error.TIMEOUT:
+            alert("A solicitação de localização expirou.");
+            break;
+        case error.UNKNOWN_ERROR:
+            alert("Erro desconhecido ao obter a localização.");
+            break;
+    }
+}
+
+// Função para buscar a geolocalização quando o botão for clicado
+document.getElementById('geo-btn').addEventListener('click', function() {
+    getLocation();
+});
