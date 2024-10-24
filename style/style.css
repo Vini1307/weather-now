@@ -487,18 +487,29 @@ body:not(.rainy) .rain {
 }
 
 @media (max-width: 768px) {
-    .container {
-        width: 90%;
-        margin: 20px auto;
+    .text-container h1 {
+        font-size: 40px; /* Reduzi o tamanho do texto ainda mais para dispositivos pequenos */
     }
 
-    nav.menu-bar ul {
+    #temp {
+        flex-direction: column; /* Empilha os elementos no celular */
+        gap: 10px;
+    }
+
+    #temp_value {
+        font-size: 30px;
+    }
+
+    #other_infos {
+        grid-template-columns: 1fr; /* Informação em uma coluna no celular */
+    }
+
+    #search {
+        width: 90%; /* Mais largura no celular */
+        margin-top: 10px;
+    }
+
+    .menu-bar ul {
         flex-direction: column;
-        align-items: center;
-    }
-
-    nav.menu-bar ul li a {
-        display: block;
-        margin-bottom: 10px;
     }
 }
