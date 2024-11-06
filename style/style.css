@@ -487,29 +487,80 @@ body:not(.rainy) .rain {
 }
 
 @media (max-width: 768px) {
-    .text-container h1 {
-        font-size: 40px; /* Reduzi o tamanho do texto ainda mais para dispositivos pequenos */
+    /* Seletores mais específicos e ajustes adicionais */
+    .mobile-container h1 {
+      font-size: 2rem; /* Utilizando unidades relativas */
+      text-align: center;
     }
-
+  
     #temp {
-        flex-direction: column; /* Empilha os elementos no celular */
-        gap: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        gap: 20px;
+        background: linear-gradient(90deg, #5a7cdc, #606dde);
+        color: #fff;
+        font-size: 1.2rem;
+        border-radius: 20px;
+        padding: 20px;
     }
-
+  
     #temp_value {
-        font-size: 30px;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
     }
-
+  
     #other_infos {
-        grid-template-columns: 1fr; /* Informação em uma coluna no celular */
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
     }
-
+  
     #search {
-        width: 90%; /* Mais largura no celular */
-        margin-top: 10px;
+      width: 80%;
+      margin: 0 auto; 
+    }
+  
+    .menu-bar ul {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    body {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+  
+    .container {
+      max-width: 90%;
+      margin: 0 auto;
     }
 
     .menu-bar ul {
-        flex-direction: column;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: row;
+        font-family: 'Raleway', sans-serif;
+        font-size: 18px;
+        
+    }
+
+    .text-container h1 {
+        font-size: 70px;
+    }
+  
+    #forecast-days{
+        display: flex;
+        flex-direction: row;   
+    }
+
+    .forecast-day{
+        width: 135px;
+    }
+
+    .container{
+        height: 100%;
     }
 }
