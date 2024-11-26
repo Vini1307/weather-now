@@ -587,3 +587,18 @@ body:not(.rainy) .rain {
         margin: 0 auto; 
     }
 }
+
+#compare-results {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.city-result {
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 45%;
+    background: #f9f9f9;
+    text-align: center;
+    border-radius: 5px;
+}

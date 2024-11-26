@@ -426,6 +426,40 @@ async function getWeatherByLocation(lat, lon, city) {
     }
 }
 
-document.getElementById('geo-btn').addEventListener('click', function() {
-    getLocation();
+document.getElementById('compare-btn').addEventListener('click', async () => {
+    const city1 = document.querySelector('#city1').value;
+    const city2 = document.querySelector('#city2').value;
+
+    if (!city1 || !city2) {
+        alert('Por favor, digite os nomes das duas cidades.');
+        return;
+    }
+
+    const apiKey = 'bab2af24a8f449072a72db058f807444';
+
+    const fetchCityWeather = async (city) => {
+        const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURI(city)}&appid=${apiKey}&units=metric&lang=pt_br`;
+        try {
+            const response = await fetch(weatherUrl);
+            if (!response.ok) throw new Error('Erro ao buscar dados');
+            return await response.json();
+        } catch (error) {
+            console.error(`Erro ao buscar dados para ${city}:`, error);
+            return null;
+        }
+    };
+
+    const [city1Data, city2Data] = await Promise.all([fetchCityWeather(city1), fetchCityWeather(city2)]);
+
+    if (!city1Data || city1Data.cod !== 200 || !city2Data || city2Data.cod !== 200) {
+        alert('Não foi possível obter os dados de uma ou ambas as cidades.');
+        return;
+    }
+
+    // Redireciona para a página de resultados com os dados das cidades
+    const url = `resultados.html?city1Data=${encodeURIComponent(JSON.stringify(city1Data))}&city2Data=${encodeURIComponent(JSON.stringify(city2Data))}`;
+    window.location.href = url;
 });
+    
+
+

@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style/style.css">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=Raleway:900" rel="stylesheet">
     <title>Weather Now</title>
 </head>
+
 <body>
     <nav class="menu-bar">
         <ul>
@@ -47,12 +51,12 @@
         </div>
 
         <form id="search">
-            <i class="fa-solid fa-location-dot"></i>
+            <!-- <i class="fa-solid fa-cloud"></i> -->
             <input type="search" name="city-name" placeholder="Buscar cidade" id="city_name">
             <button type="submit">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </button>
-            <button id="geo-btn"><i class="fa-solid fa-location-dot"></i></button>      
+            <button id="geo-btn"><i class="fa-solid fa-location-dot"></i></button>
         </form>
 
         <div id="weather">
@@ -115,10 +119,17 @@
             <div id="forecast-days"></div>
         </div>
 
+        <h1 style="color: white;">Compare as Cidades</h1>
+        <input type="text" id="city1" placeholder="Cidade 1">
+        <input type="text" id="city2" placeholder="Cidade 2">
+        <button id="compare-btn">Comparar</button>
+
+
         <div id="alert"></div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.7.13/lottie.min.js"></script>
     <script src="javascript/script.js"></script>
 </body>
+
 </html>
