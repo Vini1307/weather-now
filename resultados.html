@@ -14,6 +14,7 @@
             <li><a href="favoritos.html">Favoritos</a></li>
             <li><a href="meu-local.html">Minha Localização</a></li>
             <li><a href="5proximos.html">5 Próximos Dias</a></li>
+            <li><a href="resultados.html">Comparação de Cidades</a></li>
         </ul>
     </nav>
 
@@ -21,33 +22,12 @@
     <div id="city1-result"></div>
     <div id="city2-result"></div>
 
-    <script>
-        // Receber os dados das cidades da URL
-        const params = new URLSearchParams(window.location.search);
-        const city1Data = JSON.parse(params.get('city1Data'));
-        const city2Data = JSON.parse(params.get('city2Data'));
+    <h1 style="color: white;">Compare as Cidades</h1>
+        <input type="text" id="city1" placeholder="Cidade 1">
+        <input type="text" id="city2" placeholder="Cidade 2">
+        <button id="compare-btn">Comparar</button>
 
-        // Exibir os dados das cidades
-        const city1Result = document.querySelector('#city1-result');
-        const city2Result = document.querySelector('#city2-result');
 
-        city1Result.innerHTML = `
-            <h3>${city1Data.name}, ${city1Data.sys.country}</h3>
-            <p>Temperatura: ${city1Data.main.temp.toFixed(1)}°C</p>
-            <p>Máxima: ${city1Data.main.temp_max.toFixed(1)}°C</p>
-            <p>Mínima: ${city1Data.main.temp_min.toFixed(1)}°C</p>
-            <p>Humidade: ${city1Data.main.humidity}%</p>
-            <p>Descrição: ${city1Data.weather[0].description}</p>
-        `;
-
-        city2Result.innerHTML = `
-            <h3>${city2Data.name}, ${city2Data.sys.country}</h3>
-            <p>Temperatura: ${city2Data.main.temp.toFixed(1)}°C</p>
-            <p>Máxima: ${city2Data.main.temp_max.toFixed(1)}°C</p>
-            <p>Mínima: ${city2Data.main.temp_min.toFixed(1)}°C</p>
-            <p>Humidade: ${city2Data.main.humidity}%</p>
-            <p>Descrição: ${city2Data.weather[0].description}</p>
-        `;
-    </script>
+    <script src="javascript/resultados.js"></script>
 </body>
 </html>
