@@ -249,7 +249,7 @@ body:not(.rainy) .rain {
     border-radius: 20px;
     background-color: #e6f1f9; /* Cor de fundo */
     box-shadow: 0 10px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
-    margin: 50px 0 150px 0;
+    margin: 50px 0 0px 0;
     position: relative; /* Pode ser necessário para garantir o posicionamento correto */
 }
 
@@ -615,6 +615,7 @@ body:not(.rainy) .rain {
     box-shadow: 0 8px 15px rgb(182, 182, 182);
     margin: auto;
     transition: transform 0.7s, box-shadow 0.7s;
+    margin-top: 150px;
 }
 
 .comparacao:hover {

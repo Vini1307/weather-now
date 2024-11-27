@@ -44,9 +44,15 @@ const city2Result = document.querySelector('#city2-result');
 city1Result.innerHTML = `
     <div class="weather-info">
         <h3>${city1Data.name}, ${city1Data.sys.country}</h3>
-        <p class="temp">Temperatura: ${city1Data.main.temp.toFixed(1)}°C</p>
-        <p class="max-min">Máxima: ${city1Data.main.temp_max.toFixed(1)}°C</p>
-        <p class="max-min">Mínima: ${city1Data.main.temp_min.toFixed(1)}°C</p>
+        <p class="temp">
+            Temperatura: ${city1Data.main.temp.toFixed(1)}°C
+        </p>
+        <p class="max-min">
+            Máxima: ${city1Data.main.temp_max.toFixed(1)}°C
+        </p>
+        <p class="max-min">
+            Mínima: ${city1Data.main.temp_min.toFixed(1)}°C
+        </p>
         <p>Humidade: ${city1Data.main.humidity}%</p>
         <p class="description">Descrição: ${city1Data.weather[0].description}</p>
     </div>

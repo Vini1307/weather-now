@@ -456,10 +456,15 @@ document.getElementById('compare-btn').addEventListener('click', async () => {
         return;
     }
 
+    // Oculta a div da comparação
+    document.querySelector('.comparacao').classList.add('hidden'); // Isso vai esconder a div da comparação
+
     // Redireciona para a página de resultados com os dados das cidades
     const url = `resultados.html?city1Data=${encodeURIComponent(JSON.stringify(city1Data))}&city2Data=${encodeURIComponent(JSON.stringify(city2Data))}`;
     window.location.href = url;
 });
+
+
     
 
 
