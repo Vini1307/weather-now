@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resultados da Comparação</title>
     <link rel="stylesheet" href="/style/resultados.css">
 </head>
+
 <body>
 
     <nav class="menu-bar">
@@ -18,16 +20,27 @@
         </ul>
     </nav>
 
-    <h1>Resultados da Comparação</h1>
-    <div id="city1-result"></div>
-    <div id="city2-result"></div>
+    <div class="container">
+        <h1 id="h1">Resultados da Comparação</h1>
 
-    <h1 style="color: white;">Compare as Cidades</h1>
-        <input type="text" id="city1" placeholder="Cidade 1">
-        <input type="text" id="city2" placeholder="Cidade 2">
-        <button id="compare-btn">Comparar</button>
+        <div class="resultados-cidades">
+            <div id="city1-result"></div>
+            <div id="city2-result"></div>
+        </div>
 
+        <div class="comparacao">
+            <h1 style="color: white; display:flex; justify-content: center; align-items: center;">Compare as Cidades</h1>
+
+            <div class="cidades">
+                <input type="text" id="city1" placeholder="Digite a 1° Cidade">
+                <input type="text" id="city2" placeholder="Digite a 2° Cidade">
+            </div>
+
+            <button id="compare-btn">Comparar</button>
+        </div>
+    </div>
 
     <script src="javascript/resultados.js"></script>
 </body>
+
 </html>

@@ -249,7 +249,7 @@ body:not(.rainy) .rain {
     border-radius: 20px;
     background-color: #e6f1f9; /* Cor de fundo */
     box-shadow: 0 10px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
-    margin-top: 50px;
+    margin: 50px 0 150px 0;
     position: relative; /* Pode ser necessário para garantir o posicionamento correto */
 }
 
@@ -602,3 +602,83 @@ body:not(.rainy) .rain {
     text-align: center;
     border-radius: 5px;
 }
+
+.comparacao{
+    background-color: #414141;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 30px;
+    border: solid 1px white;
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgb(182, 182, 182);
+    margin: auto;
+    transition: transform 0.7s, box-shadow 0.7s;
+}
+
+.comparacao:hover {
+    transform: translateY(-5px); /* Eleva o quadrado ao passar o mouse */
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3); /* Sombra mais intensa no hover */
+}
+
+.cidades{
+    /* background-color: #7f1d1d; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;   
+    gap: 8px;
+}
+
+.cidades input{
+    width: 100%;
+    border-radius: 20px;
+    border: none;
+}
+
+#city1{
+    padding: 10px;
+    /* background-color: #7c3aed; */
+}
+
+#city2{
+    padding: 10px;
+}
+
+#compare-btn{
+    background-color: #FFFFFF;
+    border: #000;
+    display: flex;
+    padding: 9px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border-radius: 10px;
+    color: rgb(0, 0, 0);
+    font-weight: 600;
+    font-size: larger;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+#compare-btn:hover{
+    background-color: #333333;
+    color: white;
+    box-shadow: 0 5px 10px rgb(139, 139, 139); /* Sombra ao passar o mouse */
+    transform: translateY(-2px); /* Eleva levemente o botão */
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+#city1::placeholder,
+#city2::placeholder {
+    color: #999;
+}
+

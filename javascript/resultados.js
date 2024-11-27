@@ -42,20 +42,24 @@ const city1Result = document.querySelector('#city1-result');
 const city2Result = document.querySelector('#city2-result');
 
 city1Result.innerHTML = `
-    <h3>${city1Data.name}, ${city1Data.sys.country}</h3>
-    <p>Temperatura: ${city1Data.main.temp.toFixed(1)}°C</p>
-    <p>Máxima: ${city1Data.main.temp_max.toFixed(1)}°C</p>
-    <p>Mínima: ${city1Data.main.temp_min.toFixed(1)}°C</p>
-    <p>Humidade: ${city1Data.main.humidity}%</p>
-    <p>Descrição: ${city1Data.weather[0].description}</p>
+    <div class="weather-info">
+        <h3>${city1Data.name}, ${city1Data.sys.country}</h3>
+        <p class="temp">Temperatura: ${city1Data.main.temp.toFixed(1)}°C</p>
+        <p class="max-min">Máxima: ${city1Data.main.temp_max.toFixed(1)}°C</p>
+        <p class="max-min">Mínima: ${city1Data.main.temp_min.toFixed(1)}°C</p>
+        <p>Humidade: ${city1Data.main.humidity}%</p>
+        <p class="description">Descrição: ${city1Data.weather[0].description}</p>
+    </div>
 `;
 
 city2Result.innerHTML = `
-    <h3>${city2Data.name}, ${city2Data.sys.country}</h3>
-    <p>Temperatura: ${city2Data.main.temp.toFixed(1)}°C</p>
-    <p>Máxima: ${city2Data.main.temp_max.toFixed(1)}°C</p>
-    <p>Mínima: ${city2Data.main.temp_min.toFixed(1)}°C</p>
-    <p>Humidade: ${city2Data.main.humidity}%</p>
-    <p>Descrição: ${city2Data.weather[0].description}</p>
+    <div class="weather-info">
+        <h3>${city2Data.name}, ${city2Data.sys.country}</h3>
+        <p class="temp">Temperatura: ${city2Data.main.temp.toFixed(1)}°C</p>
+        <p class="max-min">Máxima: ${city2Data.main.temp_max.toFixed(1)}°C</p>
+        <p class="max-min">Mínima: ${city2Data.main.temp_min.toFixed(1)}°C</p>
+        <p>Humidade: ${city2Data.main.humidity}%</p>
+        <p class="description">Descrição: ${city2Data.weather[0].description}</p>
+    </div>
 `;
 
