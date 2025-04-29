@@ -7,7 +7,7 @@ document.getElementById('compare-btn').addEventListener('click', async () => {
         return;
     }
 
-    const apiKey = 'bab2af24a8f449072a72db058f807444';
+    const apiKey = ''; //inserir APIkey
 
     const fetchCityWeather = async (city) => {
         const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURI(city)}&appid=${apiKey}&units=metric&lang=pt_br`;
